@@ -31,20 +31,41 @@ const questions = [
   },
   {
     type: "input",
-    name: "link",
-    message: "Enter the GitHub link to your project. (Required)",
+    name: "GithubUsername",
+    message: "What is your github username? (Required)",
   },
   {
-    type: "confirm",
-    name: "feature",
-    message: "Would you like to feature this project?",
-    default: false,
+    type: "input",
+    name: "InstallationInstructions",
+    message: "How did you install the project?",
   },
   {
-    type: "confirm",
-    name: "confirmAddProject",
-    message: "Would you like to enter another project?",
-    default: false,
+    type: "input",
+    name: "usage",
+    message: "Write the usage information?",
+  },
+  {
+    type: "input",
+    name: "Contribution",
+    message: "How to contribute to the project?",
+  },
+  {
+    type: "input",
+    name: "Test",
+    message: "How to test the project?",
+  },
+  {
+    type: "list",
+    name: "license",
+    message: "Select license",
+    choices: [
+      "no license",
+      "MIT",
+      "Apache License 2.0",
+      "GNU GPLv3",
+      "GNU GPLv2",
+      "ISC License",
+    ],
   },
 ];
 
@@ -66,8 +87,29 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-  inquirer.prompt(questions).then (answers => {
-const readme = `${answers.name}`; 
+  inquirer.prompt(questions).then (data => {
+const readme = `
+# ${data.name}
+## Description
+- ${data.description}
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+## Installation
+${data.InstallationInstructions}
+## Usage
+${data.usage}
+## License
+${data.license}
+## How to Contribute
+${data.Contribution}
+## Tests
+${data.Test}
+## Questions
+Contact Information:
+* [gitHubLink](https://github.com/${data.GithubUsername})
+`; 
 writeToFile('readme-answers',readme);
 });
 }

@@ -1,21 +1,33 @@
-
-# Paris
+# ${data.project}
 ## Description
-- Paris
+- ${data.project}
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
 ## Installation
-npm install
+${data.InstallationInstructions}
 ## Usage
-generate readme to project
+${data.usage}
 ## License
-MIT
+${data.MIT}
 ## How to Contribute
-clone repository
+${data.Contributions}
 ## Tests
-run node index.js
+${data.test}
 ## Questions
 Contact Information:
-* [gitHubLink](https://github.com/algotoday)
+* [gitHubLink](https://github.com/${data.GithubUsername})
+
+
+
+
+
+
+
+
+
+
+
+
+
